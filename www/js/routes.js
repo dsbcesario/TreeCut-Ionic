@@ -10,13 +10,13 @@ angular.module('app.routes', [])
     
   
 
-      .state('tabsController.camera', {
+      .state('tabsController.denuncia', {
     url: '/page2',
     cache: false,
     views: {
       'tab1': {
-        templateUrl: 'templates/camera.html',
-        controller: 'cameraCtrl'
+        templateUrl: 'templates/denuncia.html',
+        controller: 'denunciaCtrl'
       }
     }
   })
@@ -31,65 +31,37 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('tabsController.notificacoes', {
+  .state('tabsController.solicitação', {
     url: '/page4',
     views: {
       'tab3': {
-        templateUrl: 'templates/notificacoes.html',
+        templateUrl: 'templates/solicitação.html',
         
       }
     }
   })
 
-.state('tabsController.configuracoes', {
+.state('tabsController.sobrenos', {
     url: '/pageconfig',
     views: {
       'tab4': {
-        templateUrl: 'templates/configuracao.html',
-        controller: 'configuracoesCtrl'
+        templateUrl: 'templates/sobrenos.html',
+        
       }
     }
   })
 
-
   .state('tabsController', {
     url: '/page1',
     templateUrl: 'templates/tabsController.html',
-    abstract:true,
-    controller:'menuCtrl'
+    abstract:true,    
   })
 
-  .state('login', {
+  .state('home', {
     url: '/page5',
-    templateUrl: 'templates/login.html',
-    controller: 'loginCtrl'
+    templateUrl: 'templates/home.html',
+    controller: 'homeCtrl'
   })
-
-  .state('cadastro', {
-    url: '/page6',
-    templateUrl: 'templates/cadastro.html',
-    controller: 'cadastroCtrl'
-  })
-
-  .state('alterarSenha', {
-    url: '/page7',
-    templateUrl: 'templates/alterarSenha.html',
-    controller: 'alterarSenhaCtrl'
-  })
-
-  .state('gerenciarFuncionario', {
-    url: '/page14',
-    templateUrl: 'templates/gerenciarFuncionario.html',
-    controller:'gerenciarFuncCtrl'
-  })
-
-  .state('cadastrarFuncionario', {
-    url: '/page15',
-    templateUrl: 'templates/cadastrarFuncionario.html',
-    controller:'cadastroFunc'
-    
-  })
-  
 
 
 $urlRouterProvider.otherwise('/page5')
