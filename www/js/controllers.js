@@ -134,6 +134,31 @@ angular.module('app.controllers', ['ngCordova'])
         }
     })
 
+    .controller('SolicitaCtrl', function ($scope, $state, solicitacaoPoda, ionicSuperPopup, $ionicLoading){
+        $scope.salvar = function (cidade) {
+            $ionicLoading.show({
+
+                template: 'Carregando...',
+                duration: 300
+            })
+            var user = firebase.auth().currentUser;
+            var obj = {
+                endereco: cidade,
+                img: $scope.pictureUrl,
+                uid: user.uid,
+                detalhes: $scope.obj.detalhes
+            }
+            var promise = solicitacaoPoda.createSolicitacao(obj);
+            promise.then(function () {
+                $ionicLoading.hide();
+                ionicSuperPopup.show('Feito!', 'Solicitação enviada com sucesso!', 'success');
+                console.log('cadastrou foda')
+                $state.go('home');
+
+            })
+        }
+    })
+
     .controller('MapCtrl', function ($scope, $ionicLoading, $cordovaGeolocation, $window, $rootScope, $state) {
 
         $ionicLoading.show({
